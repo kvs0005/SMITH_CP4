@@ -1,7 +1,12 @@
 # Augustus: A Guide to *ab initio* Gene Prediction
-**Section 1: Introduction**
+## Section 1: Introduction
 
-Augustus was first developed by Mario Stanke, Oliver Keller, Stephan Waak, and Burkhard Morgansterm in 2005 for the goal of improving *ab initio* gene prediction technology. Since 2005, this software has undergone multiple updates, with the most current version being 3.5.0 released in 2022. For this tutorial, I will be using the **3.5.0 update**, so be aware that not everything here may be applicable to your project depending on what version your work necessitates or is available to you.
+*Preface*
+
+This tutorial was made using bash scripting. Bash 
+
+
+Augustus was first developed by Mario Stanke, Oliver Keller, Stephan Waak, and Burkhard Morgansterm in 2005 for the goal of improving *ab initio* gene prediction technology. Since 2005, this software has undergone multiple updates, with the most current version being 3.5.0 released in 2022. For this tutorial, I will be using the **3.5.0 update**, so be aware that not everything here may be applicable to your project depending on what version your work necessitates or is available to you. 
 
 The phrase *ab initio* comes from Latin and means "from the beginning" or "from scratch". This type of gene prediction relies on the genomic DNA sequence itself to identify coding regions rather than outside outside sources. This is considerably different from a similiarity based approach, like that used by NCBI BLAST, which predicts genes based on homology to gene regions in related organisms. So how do you decide if Augustus is an appropriate tool for your job? Augustus is most useful when:
 
@@ -15,4 +20,11 @@ Augustus functions by utilizing the Hidden Markov Model (HMM). DNA does not tell
 
 This is what Augustus does. By using an HMM, the program is able to predict exons, introns, and other gene regions using the DNA sequence itself- no need for outside genomes! For more information regarding the mathematics behind how the HMM functions, check out INSERT PAPER LATER
 
-**Section 2: Using Augustus**
+## Section 2: Using Augustus
+
+*2a. Installation*
+
+A major plus about Augustus is that it is available through the Alabama Super Computer (ASC). To load Augustus using the command line, use the argument `module load augustus`. Check that Augustus loaded in properly using `module list`. 
+
+Alternatively, Augustus can be downloaded for free on your personal device. If you are using a Windows OS, ensure that you have downloaded a Windows subsystem for Linux (WSL). I use Ubuntu, but there exists a number of WSL's, depending on your specific needs and preferences. Once you have launched your WSL, download Augustus using `sudo app install augustus`. 
+**WARNING**: Augustus is a computationally intensive program. Generally, I would advise AGAINST personally downloading this software.
