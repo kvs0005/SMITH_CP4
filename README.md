@@ -27,4 +27,9 @@ This is what Augustus does. By using an HMM, the program is able to predict exon
 A major plus about Augustus is that it is available through the Alabama Super Computer (ASC). To load Augustus using the command line, use the argument `module load augustus`. Check that Augustus loaded in properly using `module list`. 
 
 Alternatively, Augustus can be downloaded for free on your personal device. If you are using a Windows OS, ensure that you have downloaded a Windows subsystem for Linux (WSL). I use Ubuntu, but there exists a number of WSL's, depending on your specific needs and preferences. Once you have launched your WSL, download Augustus using `sudo app install augustus`. 
+
 **WARNING**: Augustus is a computationally intensive program. Generally, I would advise AGAINST personally downloading this software.
+
+*2b. Training*
+
+While Augustus takes advantage of some of the ubiquitous elements of genes in order to identify exons, introns, etc., every organism will have some unique aspects to their genome that, unless taken into account, will DRASTICALLY lower the accuracy of the program's predictions. Therefore, it is **crucial** 
