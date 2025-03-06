@@ -32,4 +32,9 @@ Alternatively, Augustus can be downloaded for free on your personal device. If y
 
 *2b. Training*
 
-While Augustus takes advantage of some of the ubiquitous elements of genes in order to identify exons, introns, etc., every organism will have some unique aspects to their genome that, unless taken into account, will DRASTICALLY lower the accuracy of the program's predictions. Therefore, it is **crucial** 
+While Augustus takes advantage of some of the ubiquitous elements of genes in order to identify exons, introns, etc., every organism will have some unique aspects to their genome that, unless taken into account, will DRASTICALLY lower the accuracy of the program's predictions. Therefore, it is **crucial** that you train Augustus for your specific species!
+
+
+Step 1) Check to see if your organism has been added to the Augustus database by using the command`augustus --species=help`. You should see an output like this: 
+
+<img src="https://github.com/user-attachments/assets/ed2dc343-0c96-4e9b-b93b-442fcc51e8fc" alt="Screenshot" width="300" height="300"/>
