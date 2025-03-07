@@ -22,7 +22,7 @@ This is what Augustus does. By using an HMM, the program is able to predict exon
 
 ## Section 2: Using Augustus
 
-*2a. Installation*
+### *2a. Installation*
 
 A major plus about Augustus is that it is available through the Alabama Super Computer (ASC). To load Augustus using the command line, use the argument `module load augustus`. Check that Augustus loaded in properly using `module list`. 
 
@@ -30,11 +30,29 @@ Alternatively, Augustus can be downloaded for free on your personal device. If y
 
 **WARNING**: Augustus is a computationally intensive program. Generally, I would advise AGAINST personally downloading this software.
 
-*2b. Training*
+### *2b. Training*
 
 While Augustus takes advantage of some of the ubiquitous elements of genes in order to identify exons, introns, etc., every organism will have some unique aspects to their genome that, unless taken into account, will DRASTICALLY lower the accuracy of the program's predictions. Therefore, it is **crucial** that you train Augustus for your specific species!
 
 
-Step 1) Check to see if your organism has been added to the Augustus database by using the command`augustus --species=help`. You should see an output like this: 
+Step 1) Adding your species to the Augustus
+
+Check to see if your organism is in the Augustus database by using the command`augustus --species=help`. You should see an output like this: 
 
 <img src="https://github.com/user-attachments/assets/ed2dc343-0c96-4e9b-b93b-442fcc51e8fc" alt="Screenshot" width="300" height="300"/>
+
+If your species is not listed, then you will need to add it yourself! 
+- Within Augustus, the "species" directory exists within the "config" directory. The first step in adding a species to Augustus is specifying the path to the config directory.
+- To search for this path in ASC, use the command `find / -type d -name "config" 2>/path/to/error_out | grep "augustus"`. This searches the entire database for the config directory path. Note, this command will take some time to run! Admittedly, it may be inefficient, but I have found this general command to be the most reliable way to find a file or directory in the ASC. A breakdown of this command can be found below:
+   - `find /`: The find command searches a given database. By specifying " / ", we are telling the command to begin at the outer most directory (i.e. search the whole ASC)
+   - `-type d`: This flag specifies that we are search for a directory.
+   - `-name config`: This flag specifies the name of the directory
+   - `2>/path/to/error_out`: This command redirects error outputs to where you keep your error outputs. I have found that without this command, your working directory becomes clogged with "permission denied" error outputs, as many of the directories in the ASC are not available to users.
+   - `| grep "augustus"`: This pipes the outputs of the find command to grep, which filters for output paths containing the word "augustus".
+
+ - Next, store this path in a variable the AUGUSTUS_CONFIG_PATH.
+ - Finally, run the command `new_species.pl --species=your_species_name`
+ - If made properly, your species directory should contain several metaperameter files:
+ 
+  <img src="https://github.com/user-attachments/assets/28a17eb0-b8cd-443f-bf4b-e5e34712d52b" alt="Screenshot" width="600" height="70"/>
+     
