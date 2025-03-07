@@ -35,7 +35,7 @@ To load Augustus in a script (recommended):
 <img src="https://github.com/user-attachments/assets/679c54af-eb88-4f76-a990-bf220f460a24" alt="Screenshot" width="300" height="70"/>
 
 
-Alternatively, Augustus can be downloaded for free on your personal device. If you are using a Windows OS, ensure that you have Windows Subsystem for Linux (WSL) downloaded. Once you have launched your WSL, download Augustus using `sudo app install augustus`. 
+Alternatively, Augustus can be downloaded for free on your personal device. If you are using a Windows OS, ensure that you have Windows Subsystem for Linux (WSL) downloaded. Once you have launched your WSL, download Augustus using `sudo apt install augustus`. 
 
 **WARNING**: Augustus is a computationally intensive program. Generally, I would advise AGAINST personally downloading this software.
 
