@@ -34,7 +34,6 @@ Alternatively, Augustus can be downloaded for free on your personal device. If y
 
 While Augustus takes advantage of some of the ubiquitous elements of genes in order to identify exons, introns, etc., every organism will have some unique aspects to their genome that, unless taken into account, will DRASTICALLY lower the accuracy of the program's predictions. Therefore, it is **crucial** that you train Augustus for your specific species!
 
-
 Step 1) Adding your species to the Augustus
 
 Check to see if your organism is in the Augustus database by using the command`augustus --species=help`. You should see an output like this: 
@@ -55,4 +54,23 @@ If your species is not listed, then you will need to add it yourself!
  - If made properly, your species directory should contain several metaperameter files:
  
   <img src="https://github.com/user-attachments/assets/28a17eb0-b8cd-443f-bf4b-e5e34712d52b" alt="Screenshot" width="600" height="70"/>
+
+Step 2) Training 
+- The **necessary input** for training Augustus is an .gff format file containing annotated gene structures. If there does not exist a .gff file of your organism, use one of a closely related species.
+- First, use `randomSplit.pl your_species_genes.gbff 100` to randomly split your .gff file into a training file and a test file
+ - Specifyong a number tells randomSplit.pl how many genes to go into the training file. I have found that training with at least 100 genes gives you the best results
+- Next, train Augustus using `etraining --species=your_species your_species.gbff.train`
+- Once training has completed, you are ready to make an initial run with Augustus! Use `augustus --species=your_species your_species.gbff.test > test_1.out`. The goal here is to evaluate the quality of our training step. The result will be a prediction of the genes in your test file. Augustus also generates an accuracy report at the end of this output.
+- Use `grep -A 22 Evalutation test_1.out` to print the last 22 lines of accuracy report. You should see something like this:
+
+<img src="https://github.com/user-attachments/assets/440a8ca1-e4e1-4efa-97bd-d416c1e2ea1f" alt="Screenshot" width="620" height="300"/>
+
+- If you wish to increase the quality of your training, you can run `optimize_augustus.pl --species=your_species your_species.gb.train` and then use `etraining` to retrain Augustus exactly as you did previously. **WARNING**: This optimization step can be quite slow- depending on the size of your trainin file, it could take a day or longer!
+
+Congratulations! Augustus has been successfully trained!
+
+### *2c. Running Augustus*
+
+
+
      
